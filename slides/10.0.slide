@@ -1,0 +1,94 @@
+Building an Authentication System
+
+Jonathan Calhoun
+Software Developer & Author of Web Development with Go
+jon@calhoun.io
+@joncalhoun
+
+* Building an authentication system
+
+This is the most important & sensitive part of your app.
+
+Poorly executed auth systems mean users are at risk.
+
+You don't just put data on your site at risk. Users tend to share passwords across sites.
+
+* This might seem scary, but...
+
+Implementing an authentication system really isn't that hard.
+
+There are many small, but relatively simple steps.
+
+* DO NOT deviate from the norms!
+
+You will likely make a mistake and make things less secure.
+
+Trust what security experts say is the best way!
+
+Devs w/ good intentions deviating from norms can lead to bad news headlines.
+
+* Why don't we use a third party package?
+
+Every web developer should have a basic understanding of secure auth practices.
+
+Custom requirements mean you still need to customize most off-the-shelf solutions.
+
+It could save you time in the long run.
+
+It could also save you money over using services like Auth0 or Stormpath.
+
+
+* Custom requirements & basic understanding
+
+It is common to need something custom. 2 factor, monthly password resets, mobile and web API consumption, etc
+
+Without understing basic security, it is easy to compromise your system when you make these customizations, so you can't avoid learning this.
+
+* Saving time
+
+In Rails, Devise is super popular for auth.
+
+While Devise _is_ customizable, this often means learning lots of devise-specifics.
+
+By the time you do all of this, you could have simply wrote a custom auth system to meet your own needs.
+
+This is *especially* true if your custom requirements are particularly different than the norm.
+
+AuthBoss (popular auth in Go) seems great, but it has a learning curve that isn't really applicable anywhere that AuthBoss isn't used.
+
+Customizing our auth is easy - we wrote it specifically for our needs!
+
+* Saving money
+
+Services like Auth0 and Stormpath add cost in the long run.
+
+Their free tiers are good, but at some point it makes more sense (to me) to build it myself and reuse my implementation on my apps.
+
+These service may be worthwhile for you - it really depends. But you shouldn't blindly feel that you *have* to use them.
+
+* You SHOULD NOT reinvent the wheel
+
+While we will build our own auth system, I will discourage you from reinventing the wheel entirely.
+
+We will follow a standard approach at auth so that we don't reinvent the wheel and make any mistakes.
+
+* Secure your server with SSL/TLS
+
+Always use SSL/TLS in prod.
+
+That means you should have `https` (notice the s!) in your domain.
+
+You should redirect users to the https version if they visit the http version of your site.
+
+Why?
+
+- Passwords should never go over the wire unencrypted
+- Cookie theft
+
+We will cover this in more detail later, but just giving you a heads up now.
+
+* Up next...
+
+Hashing!
+
+What hash functions are and how we use hash functions to avoid storing passwords.
